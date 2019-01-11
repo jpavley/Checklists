@@ -12,6 +12,7 @@
 		B82CACDD21E812EE002EFE06 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B82CACDB21E812EE002EFE06 /* Main.storyboard */; };
 		B82CACDF21E812F0002EFE06 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B82CACDE21E812F0002EFE06 /* Assets.xcassets */; };
 		B82CACE221E812F0002EFE06 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B82CACE021E812F0002EFE06 /* LaunchScreen.storyboard */; };
+		B82CACEA21E8D0AF002EFE06 /* CheckListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82CACE921E8D0AF002EFE06 /* CheckListItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		B82CACDE21E812F0002EFE06 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B82CACE121E812F0002EFE06 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B82CACE321E812F0002EFE06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B82CACE921E8D0AF002EFE06 /* CheckListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckListItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 				B82CACDE21E812F0002EFE06 /* Assets.xcassets */,
 				B82CACE021E812F0002EFE06 /* LaunchScreen.storyboard */,
 				B82CACE321E812F0002EFE06 /* Info.plist */,
+				B82CACE921E8D0AF002EFE06 /* CheckListItem.swift */,
 			);
 			path = Checklists;
 			sourceTree = "<group>";
@@ -135,6 +138,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B82CACEA21E8D0AF002EFE06 /* CheckListItem.swift in Sources */,
 				B82CACDA21E812EE002EFE06 /* ChecklistViewController.swift in Sources */,
 				B82CACD821E812EE002EFE06 /* AppDelegate.swift in Sources */,
 			);

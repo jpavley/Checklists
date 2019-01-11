@@ -10,44 +10,51 @@ import UIKit
 
 class ChecklistViewController: UITableViewController {
     
-    var cellText = ["bat", "cat", "cow", "dog", "pig", "unknown"]
-    var cellMarks = [false, true, true, false, false, false]
+    var items = [CheckListItem]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        let cellText = ["bat", "cat", "cow", "dog", "pig", "unknown", "worm", "goat"]
+        
+        for i in 0..<cellText.count {
+            let item = CheckListItem()
+            item.text = cellText[i]
+            items.append(item)
+        }
     }
     
     func getCellText(at indexPath: IndexPath) -> String {
-        return cellText[indexPath.row]
+        return items[indexPath.row].text
     }
     
     func configureCell(at indexPath: IndexPath, for cell: UITableViewCell) {
         
-        if cellMarks[indexPath.row] {
+        let item = items[indexPath.row]
+        
+        if item.checked {
             cell.accessoryType = .none
-            cellMarks[indexPath.row] = false
-            
         } else {
             cell.accessoryType = .checkmark
-            cellMarks[indexPath.row] = true
         }
+        
+        item.toggleChecked()
     }
     
     func getCellAccessoryType(at indexPath: IndexPath) -> UITableViewCell.AccessoryType {
         
-        if cellMarks[indexPath.row] {
+        if items[indexPath.row].checked {
             return UITableViewCell.AccessoryType.checkmark
         } else {
             return UITableViewCell.AccessoryType.none
         }
     }
     
-    
     // MARK:- Table View Data Source
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return cellText.count
+        return items.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
