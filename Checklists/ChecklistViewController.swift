@@ -11,7 +11,7 @@ import UIKit
 class ChecklistViewController: UITableViewController {
     
     var cellText = ["bat", "cat", "cow", "dog", "pig", "unknown"]
-    var cellMarks = [false, false, false, false, false, false]
+    var cellMarks = [false, true, true, false, false, false]
 
     override func viewDidLoad() {
         super.viewDidLoad()
