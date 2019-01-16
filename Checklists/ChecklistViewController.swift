@@ -16,6 +16,8 @@ class ChecklistViewController: UITableViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        navigationController?.navigationBar.prefersLargeTitles = true
+        
         let cellText = ["bat", "cat", "cow", "dog", "pig", "unknown", "worm", "goat"]
         
         for i in 0..<cellText.count {
