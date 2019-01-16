@@ -47,7 +47,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Checklists" id="mY9-iQ-xj2">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="wyD-vb-hcR"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="wyD-vb-hcR">
+                            <connections>
+                                <action selector="addItem" destination="zde-i6-deI" id="cf8-hY-QUe"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BXF-0X-9ev" userLabel="First Responder" sceneMemberID="firstResponder"/>

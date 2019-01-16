@@ -27,6 +27,23 @@ class ChecklistViewController: UITableViewController {
         }
     }
     
+    // MARK:- Actions
+    
+    @IBAction func addItem() {
+        let newRowIndex = items.count
+        
+        let item = CheckListItem()
+        item.text = "I am a new row"
+        item.toggleChecked()
+        items.append(item)
+        
+        let indexPath = IndexPath(row: newRowIndex, section: 0)
+        let indexPaths = [indexPath]
+        tableView.insertRows(at: indexPaths, with: .automatic)
+    }
+    
+    // MARK:- Table Helpers
+    
     func getCellText(at indexPath: IndexPath) -> String {
         return items[indexPath.row].text
     }
