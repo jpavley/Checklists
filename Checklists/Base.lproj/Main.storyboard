@@ -81,6 +81,9 @@
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
+                                                    <connections>
+                                                        <action selector="done" destination="1a3-3a-o5S" eventType="editingDidEndOnExit" id="8dp-Ln-o38"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
