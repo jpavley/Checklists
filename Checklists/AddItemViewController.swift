@@ -10,10 +10,7 @@ import UIKit
 
 class AddItemViewController: UITableViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        navigationItem.largeTitleDisplayMode = .never
-    }
+    @IBOutlet weak var textField: UITextField!
     
     @IBAction func cancel() {
         navigationController?.popViewController(animated: true)
@@ -21,6 +18,12 @@ class AddItemViewController: UITableViewController {
     
     @IBAction func done() {
         navigationController?.popViewController(animated: true)
+        print(textField.text!)
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        navigationItem.largeTitleDisplayMode = .never
     }
     
     // MARK:- Table View Delegations
