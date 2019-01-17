@@ -48,5 +48,10 @@ class AddItemViewController: UITableViewController, UITextFieldDelegate {
         doneBarButton.isEnabled = !newText.isEmpty
         return true
     }
+    
+    func textFieldShouldClear(_ textField: UITextField) -> Bool {
+        doneBarButton.isEnabled = false
+        return true
+    }
 
 }
