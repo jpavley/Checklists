@@ -26,6 +26,11 @@ class AddItemViewController: UITableViewController {
         navigationItem.largeTitleDisplayMode = .never
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        textField.becomeFirstResponder()
+    }
+    
     // MARK:- Table View Delegations
     
     override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
