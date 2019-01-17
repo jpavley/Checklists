@@ -75,6 +75,20 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nkS-4L-bjB" id="gQJ-ur-s87">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fqX-1H-YGB">
+                                                    <rect key="frame" x="16" y="6" width="288" height="30"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="fqX-1H-YGB" firstAttribute="leading" secondItem="gQJ-ur-s87" secondAttribute="leading" constant="16" id="QOx-mT-Lan"/>
+                                                <constraint firstAttribute="bottom" secondItem="fqX-1H-YGB" secondAttribute="bottom" constant="7.5" id="Rov-cf-ceR"/>
+                                                <constraint firstItem="fqX-1H-YGB" firstAttribute="top" secondItem="gQJ-ur-s87" secondAttribute="top" constant="6" id="gA6-Xt-Ikm"/>
+                                                <constraint firstAttribute="trailing" secondItem="fqX-1H-YGB" secondAttribute="trailing" constant="16" id="xDm-Jx-r8x"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
@@ -100,7 +114,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hVU-nt-z7a" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1939" y="150"/>
+            <point key="canvasLocation" x="1938.75" y="150"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="quP-Dn-dYE">
