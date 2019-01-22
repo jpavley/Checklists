@@ -40,9 +40,9 @@ class ChecklistViewController: UITableViewController, AddItemViewControllerDeleg
         let label = cell.viewWithTag(1001) as! UILabel
         
         if item.checked {
-            label.text = "√"
+            label.alpha = 1.0
         } else {
-            label.text = ""
+            label.alpha = 0.0
         }
     }
     
