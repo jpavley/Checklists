@@ -111,10 +111,21 @@ class ChecklistViewController: UITableViewController, AddItemViewControllerDeleg
     
     // MARK:- Navigation
     
+    @discardableResult
+    func configureDesination(to segue: UIStoryboardSegue) -> AddItemViewController {
+        let controller = segue.destination as! AddItemViewController
+        controller.delegate = self
+        return controller
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "AddItem" {
-            let controller = segue.destination as! AddItemViewController
-            controller.delegate = self
+            configureDesination(to: segue)
+        } else if segue.identifier == "AddItem" {
+            let controller = configureDesination(to: segue)
+            if let indexPath = tableView.indexPath(for: sender as! UITableViewCell) {
+                controller.itemToEdit = items[indexPath.row]
+            }
         }
     }
 }
