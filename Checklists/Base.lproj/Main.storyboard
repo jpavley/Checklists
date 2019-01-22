@@ -50,6 +50,9 @@
                                         <constraint firstItem="qpJ-84-tm5" firstAttribute="leading" secondItem="OLc-fk-MuU" secondAttribute="leading" constant="16" id="nNB-fc-4o7"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="1a3-3a-o5S" kind="show" identifier="EditItem" trigger="accessoryAction" id="Evf-AM-XUT"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -154,4 +157,7 @@
             <point key="canvasLocation" x="97.5" y="150"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Evf-AM-XUT"/>
+    </inferredMetricsTieBreakers>
 </document>
