@@ -18,13 +18,15 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
         
         navigationController?.navigationBar.prefersLargeTitles = true
         
-        let cellText = ["bat", "cat", "cow", "dog", "pig", "unknown", "worm", "goat"]
+//        let cellText = ["bat", "cat", "cow", "dog", "pig", "unknown", "worm", "goat"]
+//
+//        for i in 0..<cellText.count {
+//            let item = ChecklistItem()
+//            item.text = cellText[i]
+//            items.append(item)
+//        }
         
-        for i in 0..<cellText.count {
-            let item = ChecklistItem()
-            item.text = cellText[i]
-            items.append(item)
-        }
+        loadChecklistItems()
         
         print("Documents folder is \(documentsDirectory())")
         print("Data file path is \(dataFilePath())")
@@ -169,6 +171,23 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
             try data.write(to: dataFilePath(), options: Data.WritingOptions.atomic)
         } catch {
             print("Error encoding item array: \(error.localizedDescription)")
+        }
+    }
+    
+    func loadChecklistItems() {
+        let path = dataFilePath()
+        
+        if let data = try? Data(contentsOf: path) {
+            
+            let decoder = PropertyListDecoder()
+            
+            do {
+                items = try decoder.decode([ChecklistItem].self, from: data)
+            } catch {
+                print("Error decoding item array: \(error.localizedDescription)")
+            }
+        } else {
+            print("Could not find Checklists.plist")
         }
     }
 }
