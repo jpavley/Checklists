@@ -25,6 +25,9 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
             item.text = cellText[i]
             items.append(item)
         }
+        
+        print("Documents folder is \(documentsDirectory())")
+        print("Data file path is \(dataFilePath())")
     }
     
     // MARK:- Actions
@@ -140,6 +143,17 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
                 controller.itemToEdit = items[indexPath.row]
             }
         }
+    }
+    
+    // MARK:- Document Data Management
+    
+    func documentsDirectory() -> URL {
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        return paths.first!
+    }
+    
+    func dataFilePath() -> URL {
+        return documentsDirectory().appendingPathComponent("Checklists.plist")
     }
 }
 
