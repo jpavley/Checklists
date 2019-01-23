@@ -90,16 +90,16 @@ class ChecklistViewController: UITableViewController, AddItemViewControllerDeleg
     
     // MARK:- Add Item View Controller Delegates
     
-    func addItemViewControllerDidCancel(_ controller: AddItemViewController) {
+    func addItemViewControllerDidCancel(_ controller: ItemDetailViewController) {
         navigationController?.popViewController(animated:true)
     }
     
-    func addItemViewController(_ controller: AddItemViewController, didFinishAdding item: ChecklistItem) {
+    func addItemViewController(_ controller: ItemDetailViewController, didFinishAdding item: ChecklistItem) {
         addItem(item)
         navigationController?.popViewController(animated:true)
     }
     
-    func addItemViewController(_ controller: AddItemViewController, didFinishEditing item: ChecklistItem) {
+    func addItemViewController(_ controller: ItemDetailViewController, didFinishEditing item: ChecklistItem) {
         
         if let index = items.index(of: item) {
         
@@ -125,8 +125,8 @@ class ChecklistViewController: UITableViewController, AddItemViewControllerDeleg
     // MARK:- Navigation
     
     @discardableResult
-    func configureDesination(to segue: UIStoryboardSegue) -> AddItemViewController {
-        let controller = segue.destination as! AddItemViewController
+    func configureDesination(to segue: UIStoryboardSegue) -> ItemDetailViewController {
+        let controller = segue.destination as! ItemDetailViewController
         controller.delegate = self
         return controller
     }
