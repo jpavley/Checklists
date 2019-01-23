@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol AddItemViewControllerDelegate: class {
+protocol ItemDetailViewControllerDelegate: class {
     
     func addItemViewControllerDidCancel(_ controller: ItemDetailViewController)
     func addItemViewController(_ controller: ItemDetailViewController, didFinishAdding item: ChecklistItem)
@@ -18,7 +18,7 @@ protocol AddItemViewControllerDelegate: class {
 
 class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
     
-    weak var delegate: AddItemViewControllerDelegate?
+    weak var delegate: ItemDetailViewControllerDelegate?
     
     var itemToEdit: ChecklistItem?
 
