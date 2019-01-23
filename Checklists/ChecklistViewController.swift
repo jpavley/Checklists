@@ -10,7 +10,7 @@ import UIKit
 
 class ChecklistViewController: UITableViewController, AddItemViewControllerDelegate {
     
-    var items = [CheckListItem]()
+    var items = [ChecklistItem]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +21,7 @@ class ChecklistViewController: UITableViewController, AddItemViewControllerDeleg
         let cellText = ["bat", "cat", "cow", "dog", "pig", "unknown", "worm", "goat"]
         
         for i in 0..<cellText.count {
-            let item = CheckListItem()
+            let item = ChecklistItem()
             item.text = cellText[i]
             items.append(item)
         }
@@ -35,7 +35,7 @@ class ChecklistViewController: UITableViewController, AddItemViewControllerDeleg
         return items[indexPath.row].text
     }
     
-    func configureCellMark(with item: CheckListItem, for cell: UITableViewCell) {
+    func configureCellMark(with item: ChecklistItem, for cell: UITableViewCell) {
         
         let label = cell.viewWithTag(1001) as! UILabel
         
@@ -46,7 +46,7 @@ class ChecklistViewController: UITableViewController, AddItemViewControllerDeleg
         }
     }
     
-    func configureCellText(with item: CheckListItem, for cell: UITableViewCell) {
+    func configureCellText(with item: ChecklistItem, for cell: UITableViewCell) {
         
         let label = cell.viewWithTag(1000) as! UILabel
         label.text = item.text
@@ -94,12 +94,12 @@ class ChecklistViewController: UITableViewController, AddItemViewControllerDeleg
         navigationController?.popViewController(animated:true)
     }
     
-    func addItemViewController(_ controller: AddItemViewController, didFinishAdding item: CheckListItem) {
+    func addItemViewController(_ controller: AddItemViewController, didFinishAdding item: ChecklistItem) {
         addItem(item)
         navigationController?.popViewController(animated:true)
     }
     
-    func addItemViewController(_ controller: AddItemViewController, didFinishEditing item: CheckListItem) {
+    func addItemViewController(_ controller: AddItemViewController, didFinishEditing item: ChecklistItem) {
         
         if let index = items.index(of: item) {
         
@@ -113,7 +113,7 @@ class ChecklistViewController: UITableViewController, AddItemViewControllerDeleg
     }
 
     
-    func addItem(_ item: CheckListItem) {
+    func addItem(_ item: ChecklistItem) {
         let newRowIndex = items.count
         items.append(item)
         

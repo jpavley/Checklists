@@ -11,8 +11,8 @@ import UIKit
 protocol AddItemViewControllerDelegate: class {
     
     func addItemViewControllerDidCancel(_ controller: AddItemViewController)
-    func addItemViewController(_ controller: AddItemViewController, didFinishAdding item: CheckListItem)
-    func addItemViewController(_ controller: AddItemViewController, didFinishEditing item: CheckListItem)
+    func addItemViewController(_ controller: AddItemViewController, didFinishAdding item: ChecklistItem)
+    func addItemViewController(_ controller: AddItemViewController, didFinishEditing item: ChecklistItem)
 
 }
 
@@ -20,7 +20,7 @@ class AddItemViewController: UITableViewController, UITextFieldDelegate {
     
     weak var delegate: AddItemViewControllerDelegate?
     
-    var itemToEdit: CheckListItem?
+    var itemToEdit: ChecklistItem?
 
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var doneBarButton: UIBarButtonItem!
@@ -35,7 +35,7 @@ class AddItemViewController: UITableViewController, UITextFieldDelegate {
             itemToEdit.text = textField.text!
             delegate?.addItemViewController(self, didFinishEditing: itemToEdit)
         } else {
-            let item = CheckListItem()
+            let item = ChecklistItem()
             item.text = textField.text!
             
             delegate?.addItemViewController(self, didFinishAdding: item)

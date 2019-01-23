@@ -1,5 +1,5 @@
 //
-//  CheckListItem.swift
+//  ChecklistItem.swift
 //  Checklists
 //
 //  Created by John Pavley on 1/11/19.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-class CheckListItem: NSObject {
+class ChecklistItem: NSObject {
     var text = ""
     var checked = false
     
