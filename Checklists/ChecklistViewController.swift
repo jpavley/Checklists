@@ -90,16 +90,16 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
     
     // MARK:- Add Item View Controller Delegates
     
-    func addItemViewControllerDidCancel(_ controller: ItemDetailViewController) {
+    func itemDetailViewControllerDidCancel(_ controller: ItemDetailViewController) {
         navigationController?.popViewController(animated:true)
     }
     
-    func addItemViewController(_ controller: ItemDetailViewController, didFinishAdding item: ChecklistItem) {
+    func itemDetailViewController(_ controller: ItemDetailViewController, didFinishAdding item: ChecklistItem) {
         addItem(item)
         navigationController?.popViewController(animated:true)
     }
     
-    func addItemViewController(_ controller: ItemDetailViewController, didFinishEditing item: ChecklistItem) {
+    func itemDetailViewController(_ controller: ItemDetailViewController, didFinishEditing item: ChecklistItem) {
         
         if let index = items.index(of: item) {
         
