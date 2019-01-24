@@ -16,7 +16,7 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.largeTitleDisplayMode = .never
         
 //        let cellText = ["bat", "cat", "cow", "dog", "pig", "unknown", "worm", "goat"]
 //

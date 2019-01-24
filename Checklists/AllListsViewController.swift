@@ -16,6 +16,8 @@ class AllListsViewController: UITableViewController {
         super.viewDidLoad()
         
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier)
+        navigationController?.navigationBar.prefersLargeTitles = true
+
     }
 
     // MARK: - Table view data source
