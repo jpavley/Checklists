@@ -10,4 +10,9 @@ import UIKit
 
 class Checklist: NSObject, Codable {
     var name = ""
+    
+    init(name: String) {
+        self.name = name
+        super.init()
+    }
 }
