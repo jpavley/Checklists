@@ -9,5 +9,5 @@
 import UIKit
 
 class Checklist: NSObject, Codable {
-
+    var name = ""
 }
