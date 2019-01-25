@@ -18,6 +18,14 @@ class AllListsViewController: UITableViewController {
         
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier)
         navigationController?.navigationBar.prefersLargeTitles = true
+        
+        let listNames = ["To Do", "To Buy", "To Read", "To Watch", "To Eat"]
+
+        for i in 0..<listNames.count {
+            let list = Checklist(name: listNames[i])
+            checklists.append(list)
+        }
+
 
     }
 
