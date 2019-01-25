@@ -41,6 +41,7 @@ class AllListsViewController: UITableViewController {
         let list = checklists[indexPath.row]
         
         cell.textLabel!.text = list.name
+        cell.accessoryType = .detailDisclosureButton
 
         return cell
     }
