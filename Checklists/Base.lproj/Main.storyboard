@@ -22,10 +22,16 @@
                             <outlet property="delegate" destination="gQs-Jz-SiD" id="Kz2-9B-KXL"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Checklists" id="eEY-SY-zof"/>
+                    <navigationItem key="navigationItem" title="Checklists" largeTitleDisplayMode="always" id="eEY-SY-zof">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="egj-4A-uMG">
+                            <connections>
+                                <segue destination="4MF-Tf-Lm5" kind="show" identifier="AddChecklist" id="4Kt-M0-qGl"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <segue destination="zde-i6-deI" kind="show" identifier="ShowChecklist" id="9Sy-UH-lNn"/>
-                        <segue destination="4MF-Tf-Lm5" kind="show" id="oMd-hz-W9C"/>
+                        <segue destination="4MF-Tf-Lm5" kind="show" identifier="EditChecklist" id="oMd-hz-W9C"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eEc-1d-58O" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -247,5 +253,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="Evf-AM-XUT"/>
+        <segue reference="4Kt-M0-qGl"/>
     </inferredMetricsTieBreakers>
 </document>
