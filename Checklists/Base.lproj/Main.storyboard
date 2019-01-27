@@ -97,6 +97,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="doneBarButton" destination="gTl-QC-lTT" id="Wpi-vf-qzS"/>
+                        <outlet property="textField" destination="VZe-Pq-e4Q" id="5TN-gX-q8W"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FCY-Fe-3CI" userLabel="First Responder" sceneMemberID="firstResponder"/>
