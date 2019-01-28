@@ -34,9 +34,12 @@ class ListDetailViewController: UITableViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let checklist = checklistToEdit {
+        if let checklistToEdit = checklistToEdit {
             title = "Edit Checklist"
-            textField.text = checklist.name
+            
+            // FIXME: label text don't set to checklist name
+            textField.text = checklistToEdit.name
+            
             doneBarButton.isEnabled = true
         }
     }
@@ -72,6 +75,7 @@ class ListDetailViewController: UITableViewController, UITextFieldDelegate {
     }
     
     // MARK:- Text Field Delegates
+    
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
         let oldText = textField.text!
