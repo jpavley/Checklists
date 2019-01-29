@@ -34,12 +34,8 @@ class ListDetailViewController: UITableViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let checklistToEdit = checklistToEdit {
+        if checklistToEdit != nil {
             title = "Edit Checklist"
-            
-            // FIXME: label text don't set to checklist name
-            textField.text = checklistToEdit.name
-            
             doneBarButton.isEnabled = true
         }
     }
@@ -47,6 +43,12 @@ class ListDetailViewController: UITableViewController, UITextFieldDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         textField.becomeFirstResponder()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        // Setting the content of textField doesn't work in viewDidLoad
+        // but it works here. Mysterious!
+        textField.text = checklistToEdit?.name
     }
     
     // MARK:- Actions
