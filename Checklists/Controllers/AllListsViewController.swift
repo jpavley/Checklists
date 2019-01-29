@@ -25,8 +25,12 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
             let list = Checklist(name: listNames[i])
             checklists.append(list)
         }
-
-
+        
+        for checklist in checklists {
+            let item = ChecklistItem()
+            item.text = "item for \(checklist.name)"
+            checklist.items.append(item)
+        }
     }
 
     // MARK: - Table view data source
