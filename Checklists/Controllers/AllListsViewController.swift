@@ -12,27 +12,29 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
     
     let cellIdentifier = "ChecklistCell"
     var checklists = [Checklist]()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier)
         navigationController?.navigationBar.prefersLargeTitles = true
         
-        let listNames = ["To Do", "To Buy", "To Read", "To Watch", "To Eat"]
-
-        for i in 0..<listNames.count {
-            let list = Checklist(name: listNames[i])
-            checklists.append(list)
-        }
+//        let listNames = ["To Do", "To Buy", "To Read", "To Watch", "To Eat"]
+//
+//        for i in 0..<listNames.count {
+//            let list = Checklist(name: listNames[i])
+//            checklists.append(list)
+//        }
+//
+//        for checklist in checklists {
+//            let item = ChecklistItem()
+//            item.text = "item for \(checklist.name)"
+//            checklist.items.append(item)
+//        }
         
-        for checklist in checklists {
-            let item = ChecklistItem()
-            item.text = "item for \(checklist.name)"
-            checklist.items.append(item)
-        }
+        loadChecklists()
     }
-
+    
     // MARK: - Table view data source
     
     override func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
@@ -45,11 +47,11 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
         
         navigationController?.pushViewController(controller, animated: true)
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return checklists.count
     }
-
+    
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
@@ -57,7 +59,7 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
         
         cell.textLabel!.text = list.name
         cell.accessoryType = .detailButton
-
+        
         return cell
     }
     
@@ -122,5 +124,45 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
         navigationController?.popViewController(animated: true)
     }
     
-
+    // MARK:- Document Data Management
+    
+    func documentsDirectory() -> URL {
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        return paths.first!
+    }
+    
+    func dataFilePath() -> URL {
+        return documentsDirectory().appendingPathComponent("Checklists.plist")
+    }
+    
+    func saveChecklists() {
+        let encoder = PropertyListEncoder()
+        
+        do {
+            let data = try encoder.encode(checklists)
+            try data.write(to: dataFilePath(), options: Data.WritingOptions.atomic)
+        } catch {
+            print("Error encoding checklist: \(error.localizedDescription)")
+        }
+    }
+    
+    func loadChecklists() {
+        let path = dataFilePath()
+        
+        if let data = try? Data(contentsOf: path) {
+            
+            let decoder = PropertyListDecoder()
+            
+            do {
+                checklists = try decoder.decode([Checklist].self, from: data)
+            } catch {
+                print("Error decoding checklist: \(error.localizedDescription)")
+            }
+        } else {
+            print("Could not find Checklists.plist")
+        }
+    }
+    
+    
+    
 }
