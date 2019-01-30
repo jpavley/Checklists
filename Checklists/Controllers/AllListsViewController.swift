@@ -24,6 +24,18 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
         navigationController?.navigationBar.prefersLargeTitles = true
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        
+        navigationController?.delegate = self
+        
+        let index = UserDefaults.standard.integer(forKey: "ChecklistIndex")
+        
+        if index != -1 {
+            let checklist = dataModel.lists[index]
+            performSegue(withIdentifier: "ShowChecklist", sender: checklist)
+        }
+    }
+    
     // MARK: - Table view data source
     
     override func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
@@ -57,7 +69,6 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
         
         // save the index of the list that the user is about to open include app is terminated
         UserDefaults.standard.set(indexPath.row, forKey: "ChecklistIndex")
-        
         performSegue(withIdentifier: "ShowChecklist", sender: checklist)
     }
     
