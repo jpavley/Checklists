@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B80624B72201E298001EB400 /* ChecklistDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80624B62201E298001EB400 /* ChecklistDataModel.swift */; };
 		B815ABCD21FA83E000D5EA78 /* AllListsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B815ABCC21FA83E000D5EA78 /* AllListsViewController.swift */; };
 		B815ABCF21FB440D00D5EA78 /* Checklist.swift in Sources */ = {isa = PBXBuildFile; fileRef = B815ABCE21FB440D00D5EA78 /* Checklist.swift */; };
 		B815ABD321FBDF2600D5EA78 /* ListDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B815ABD221FBDF2600D5EA78 /* ListDetailViewController.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B80624B62201E298001EB400 /* ChecklistDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistDataModel.swift; sourceTree = "<group>"; };
 		B815ABCC21FA83E000D5EA78 /* AllListsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllListsViewController.swift; sourceTree = "<group>"; };
 		B815ABCE21FB440D00D5EA78 /* Checklist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checklist.swift; sourceTree = "<group>"; };
 		B815ABD221FBDF2600D5EA78 /* ListDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDetailViewController.swift; sourceTree = "<group>"; };
@@ -50,6 +52,7 @@
 			children = (
 				B82CACE921E8D0AF002EFE06 /* ChecklistItem.swift */,
 				B815ABCE21FB440D00D5EA78 /* Checklist.swift */,
+				B80624B62201E298001EB400 /* ChecklistDataModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -166,6 +169,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B80624B72201E298001EB400 /* ChecklistDataModel.swift in Sources */,
 				B82CACEA21E8D0AF002EFE06 /* ChecklistItem.swift in Sources */,
 				B815ABD321FBDF2600D5EA78 /* ListDetailViewController.swift in Sources */,
 				B82CAD1A21F1007A002EFE06 /* ItemDetailViewController.swift in Sources */,
