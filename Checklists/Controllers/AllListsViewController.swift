@@ -8,7 +8,11 @@
 
 import UIKit
 
-class AllListsViewController: UITableViewController, ListDetailViewControllerDelegate {
+/// Root view controller.
+/// - UINavigationControllerDelegate means the object gets notified when the back button on the navigation bar is pressed.
+/// - UITableViewController means the object get notified when the user interacts with the table view.
+/// - ListDetailViewControllerDelegate is a bespoke protocol that means the object is notified when the user makes changes to a checklist.
+class AllListsViewController: UITableViewController, ListDetailViewControllerDelegate, UINavigationControllerDelegate {
     
     let cellIdentifier = "ChecklistCell"
     var dataModel: ChecklistDataModel!
@@ -50,6 +54,10 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let checklist = dataModel.lists[indexPath.row]
+        
+        // save the index of the list that the user is about to open include app is terminated
+        UserDefaults.standard.set(indexPath.row, forKey: "ChecklistIndex")
+        
         performSegue(withIdentifier: "ShowChecklist", sender: checklist)
     }
     
@@ -107,5 +115,16 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
         }
         
         navigationController?.popViewController(animated: true)
+    }
+    
+    // MARK:- Navigation Controller Delegates
+    func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
+        
+        // Was the back button tapped?
+        // Woah: note the 3 equal signs, not just equal value (==) but identitical object (===)!
+        if viewController === self {
+            // set the index for the checklist opened to n/a (-1)
+            UserDefaults.standard.set(-1, forKey: "ChecklistIndex")
+        }
     }
 }
