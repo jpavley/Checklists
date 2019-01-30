@@ -28,7 +28,7 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
         
         navigationController?.delegate = self
         
-        let index = UserDefaults.standard.integer(forKey: "ChecklistIndex")
+        let index = dataModel.indexOfSelectedChecklist
         
         if index != -1 {
             let checklist = dataModel.lists[index]
@@ -68,7 +68,7 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
         let checklist = dataModel.lists[indexPath.row]
         
         // save the index of the list that the user is about to open include app is terminated
-        UserDefaults.standard.set(indexPath.row, forKey: "ChecklistIndex")
+        dataModel.indexOfSelectedChecklist = indexPath.row
         performSegue(withIdentifier: "ShowChecklist", sender: checklist)
     }
     
