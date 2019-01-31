@@ -129,13 +129,14 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
     }
     
     // MARK:- Navigation Controller Delegates
+    
     func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
         
         // Was the back button tapped?
         // Woah: note the 3 equal signs, not just equal value (==) but identitical object (===)!
         if viewController === self {
             // set the index for the checklist opened to n/a (-1)
-            UserDefaults.standard.set(-1, forKey: "ChecklistIndex")
+            dataModel.indexOfSelectedChecklist = -1
         }
     }
 }
