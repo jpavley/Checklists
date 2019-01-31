@@ -30,7 +30,8 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
         
         let index = dataModel.indexOfSelectedChecklist
         
-        if index != -1 {
+        if index >= 0 && index < dataModel.lists.count {
+            // make sure the index is not -1 (n/a) or greater than the number of availble lists before seguing
             let checklist = dataModel.lists[index]
             performSegue(withIdentifier: "ShowChecklist", sender: checklist)
         }
