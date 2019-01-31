@@ -18,6 +18,8 @@ class ChecklistDataModel {
         }
         set {
             UserDefaults.standard.set(newValue, forKey: "ChecklistIndex")
+            // force user defaults to set the new value immediately in the case of a sudden termination event
+            UserDefaults.standard.synchronize()
         }
     }
 
