@@ -77,13 +77,11 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
         cell.textLabel!.text = list.name
         cell.accessoryType = .detailButton
         
-        let undoneItemsCount = list.countUncheckedItems()
-        let totalItemsCount = list.items.count
-        
-        if undoneItemsCount == 0 {
-            cell.detailTextLabel!.text = "All \(totalItemsCount) items done"
+        let count = list.countUncheckedItems()
+        if list.items.count == 0 {
+            cell.detailTextLabel!.text = "(No Items)"
         } else {
-            cell.detailTextLabel!.text = "\(undoneItemsCount) of \(totalItemsCount) items not done"
+            cell.detailTextLabel!.text = count == 0 ? "All Done" : "\(count) Remaining"
         }
         
         return cell
