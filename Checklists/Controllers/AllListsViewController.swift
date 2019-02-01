@@ -36,6 +36,11 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
+    
     // MARK: - Table view data source
     
     override func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
@@ -71,6 +76,8 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
         
         cell.textLabel!.text = list.name
         cell.accessoryType = .detailButton
+        
+        cell.detailTextLabel!.text = "\(list.countUncheckedItems()) of \(list.items.count) not done yet"
         
         return cell
     }

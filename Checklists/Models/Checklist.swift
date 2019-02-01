@@ -24,7 +24,6 @@ class Checklist: NSObject, Codable {
             count += 1
         }
         
-        count = items.filter { !$0.checked }.count
         return count
     }
 }
