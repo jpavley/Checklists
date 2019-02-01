@@ -20,7 +20,6 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier)
         navigationController?.navigationBar.prefersLargeTitles = true
     }
     
