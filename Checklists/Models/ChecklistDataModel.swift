@@ -27,11 +27,28 @@ class ChecklistDataModel {
         lists = [Checklist]()
         loadChecklists()
         registerDefaults()
+        handleFirstTime()
     }
     
     func registerDefaults() {
-        let dictionary = [ "ChecklistIndex": -1 ]
+        // if ChecklistIndex is -1 then no checklist was opened
+        // if FirstTime is true then this is the first time the user has launced the app
+        let dictionary = ["ChecklistIndex": -1, "FirstTime": true] as [String : Any]
         UserDefaults.standard.register(defaults: dictionary)
+    }
+    
+    func handleFirstTime() {
+        let userDefaults = UserDefaults.standard
+        let firstTime = userDefaults.bool(forKey: "FirstTime")
+        
+        if firstTime {
+            let checklist = Checklist(name: "List")
+            lists.append(checklist)
+            
+            indexOfSelectedChecklist = 0
+            userDefaults.set(false, forKey: "FirstTime")
+            userDefaults.synchronize()
+        }
     }
     
     // MARK:- Document Data Management
