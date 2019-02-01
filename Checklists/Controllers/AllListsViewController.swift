@@ -55,7 +55,18 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
+        
+        // Get cell by either reuse or allocating a new one!
+        
+        let cell: UITableViewCell!
+        
+        if let c = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) {
+            cell = c
+            
+        } else {
+            cell = UITableViewCell(style: .subtitle, reuseIdentifier: cellIdentifier)
+        }
+        
         let list = dataModel.lists[indexPath.row]
         
         cell.textLabel!.text = list.name
