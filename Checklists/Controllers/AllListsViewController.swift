@@ -84,6 +84,8 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
             cell.detailTextLabel!.text = count == 0 ? "All Done" : "\(count) Remaining"
         }
         
+        // Cells using the standard .subtitle cell style come with a built-in UIImageView on the left.
+        // You can simply pass it an image and it will be displayed automatically
         cell.imageView!.image = UIImage(named: list.iconName)
 
         return cell
