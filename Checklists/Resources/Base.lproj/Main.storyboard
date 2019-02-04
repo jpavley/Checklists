@@ -79,21 +79,21 @@
                             </tableViewSection>
                             <tableViewSection id="TCt-gt-5C2">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="T39-zQ-gLN">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="T39-zQ-gLN">
                                         <rect key="frame" x="0.0" y="115" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="T39-zQ-gLN" id="xev-ru-qFp">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="286" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zKr-Yl-o8x">
-                                                    <rect key="frame" x="16" y="11.5" width="244" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Icon" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zKr-Yl-o8x">
+                                                    <rect key="frame" x="16" y="11.5" width="210" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ooY-9D-CCQ">
-                                                    <rect key="frame" x="268" y="3" width="36" height="36"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Appointments" translatesAutoresizingMaskIntoConstraints="NO" id="ooY-9D-CCQ">
+                                                    <rect key="frame" x="234" y="3" width="36" height="36"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="36" id="Ne7-m3-Bxk"/>
                                                         <constraint firstAttribute="width" constant="36" id="d8z-Sy-UeQ"/>
@@ -135,6 +135,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="doneBarButton" destination="gTl-QC-lTT" id="Wpi-vf-qzS"/>
+                        <outlet property="iconImageView" destination="ooY-9D-CCQ" id="eoc-Ea-16K"/>
                         <outlet property="textField" destination="VZe-Pq-e4Q" id="5TN-gX-q8W"/>
                     </connections>
                 </tableViewController>
@@ -328,6 +329,9 @@
             <point key="canvasLocation" x="97.5" y="150"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Appointments" width="36" height="36"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Evf-AM-XUT"/>
         <segue reference="4Kt-M0-qGl"/>
