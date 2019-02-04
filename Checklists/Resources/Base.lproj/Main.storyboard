@@ -336,4 +336,5 @@
         <segue reference="Evf-AM-XUT"/>
         <segue reference="4Kt-M0-qGl"/>
     </inferredMetricsTieBreakers>
+    <color key="tintColor" red="0.58072251080000004" green="0.066734083" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
