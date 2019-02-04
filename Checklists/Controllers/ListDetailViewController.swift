@@ -22,12 +22,7 @@ class ListDetailViewController: UITableViewController, UITextFieldDelegate, Icon
     // MARK:- Outlets
     
     @IBOutlet weak var textField: UITextField!
-    
-    /// doneBarButton states
-    /// - Disabled: when view appears
-    /// - Enabled: when list name or icon changes
     @IBOutlet weak var doneBarButton: UIBarButtonItem!
-    
     @IBOutlet weak var iconImageView: UIImageView!
     
     // MARK:- Properties
@@ -44,6 +39,8 @@ class ListDetailViewController: UITableViewController, UITextFieldDelegate, Icon
         if let checklistToEdit = checklistToEdit {
             title = "Edit Checklist"
             iconName = checklistToEdit.iconName
+            textField.text = checklistToEdit.name
+
         }
         
         iconImageView.image = UIImage(named: iconName)
@@ -52,12 +49,6 @@ class ListDetailViewController: UITableViewController, UITextFieldDelegate, Icon
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         textField.becomeFirstResponder()
-    }
-    
-    override func viewDidLayoutSubviews() {
-        // Setting the content of textField doesn't work in viewDidLoad
-        // but it works here. Mysterious!
-        textField.text = checklistToEdit?.name
     }
     
     // MARK:- Actions
@@ -96,18 +87,18 @@ class ListDetailViewController: UITableViewController, UITextFieldDelegate, Icon
     // MARK:- Text Field Delegates
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        
+
         let oldText = textField.text!
         let stringRange = Range(range, in: oldText)!
         let newText = oldText.replacingCharacters(in: stringRange, with: string)
-        
+
         doneBarButton.isEnabled = !newText.isEmpty
         return true
     }
     
     func textFieldShouldClear(_ textField: UITextField) -> Bool {
         
-        //doneBarButton.isEnabled = false
+        doneBarButton.isEnabled = false
         return true
     }
     
@@ -117,7 +108,15 @@ class ListDetailViewController: UITableViewController, UITextFieldDelegate, Icon
         
         self.iconName = iconName
         iconImageView.image = UIImage(named: iconName)
-        doneBarButton.isEnabled = true
+        
+        // if there is no text in the text field don't enable the done button
+        // even if the icon image has changed...
+        if textField.text?.count == 0 {
+            doneBarButton.isEnabled = false
+        } else {
+            doneBarButton.isEnabled = true
+        }
+        
         navigationController?.popViewController(animated: true)
     }
     
