@@ -73,8 +73,11 @@ class ListDetailViewController: UITableViewController, UITextFieldDelegate {
     // MARK:- Table View Delegates
     
     override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-        // don't allow any row to be selected
-        return nil
+        // if the icon section is tapped on, allow it!
+        // (return nil means the tap is ignored
+        // section 0: checklist name
+        // section 1: checklist icon
+        return indexPath.section == 1 ? indexPath : nil
     }
     
     // MARK:- Text Field Delegates
