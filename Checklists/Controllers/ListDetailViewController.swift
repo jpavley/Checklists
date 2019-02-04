@@ -22,7 +22,12 @@ class ListDetailViewController: UITableViewController, UITextFieldDelegate, Icon
     // MARK:- Outlets
     
     @IBOutlet weak var textField: UITextField!
+    
+    /// doneBarButton states
+    /// - Disabled: when view appears
+    /// - Enabled: when list name or icon changes
     @IBOutlet weak var doneBarButton: UIBarButtonItem!
+    
     @IBOutlet weak var iconImageView: UIImageView!
     
     // MARK:- Properties
@@ -39,7 +44,6 @@ class ListDetailViewController: UITableViewController, UITextFieldDelegate, Icon
         if let checklistToEdit = checklistToEdit {
             title = "Edit Checklist"
             iconName = checklistToEdit.iconName
-            doneBarButton.isEnabled = true
         }
         
         iconImageView.image = UIImage(named: iconName)
@@ -103,7 +107,7 @@ class ListDetailViewController: UITableViewController, UITextFieldDelegate, Icon
     
     func textFieldShouldClear(_ textField: UITextField) -> Bool {
         
-        doneBarButton.isEnabled = false
+        //doneBarButton.isEnabled = false
         return true
     }
     
@@ -113,6 +117,7 @@ class ListDetailViewController: UITableViewController, UITextFieldDelegate, Icon
         
         self.iconName = iconName
         iconImageView.image = UIImage(named: iconName)
+        doneBarButton.isEnabled = true
         navigationController?.popViewController(animated: true)
     }
     
