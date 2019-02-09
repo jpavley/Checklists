@@ -95,6 +95,16 @@ class ChecklistDataModel {
             print("Could not find Checklists.plist")
         }
     }
+    
+    // MARK:- local notification
+    
+    class func nextChecklistItemID() -> Int {
+        let userDefaults = UserDefaults.standard
+        let itemID = userDefaults.integer(forKey: "ChecklistItemID")
+        userDefaults.set(itemID + 1, forKey: "ChecklistItemID")
+        userDefaults.synchronize() // force user default to update immediately
+        return itemID
+    }
 
 }
 
