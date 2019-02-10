@@ -15,7 +15,7 @@ class ChecklistItem: NSObject, Codable {
     // local notification properties
     var dueDate = Date()
     var shouldRemind = false
-    var itemID = -1
+    var itemID = GK.Index.noIndex
     
     init(text: String = "", checked: Bool = false) {
         self.text = text

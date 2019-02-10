@@ -33,7 +33,7 @@ class ChecklistDataModel {
     func registerDefaults() {
         // if ChecklistIndex is -1 then no checklist was opened
         // if FirstTime is true then this is the first time the user has launced the app
-        let dictionary = ["ChecklistIndex": -1, "FirstTime": true] as [String : Any]
+        let dictionary = ["ChecklistIndex": GK.Index.noIndex, "FirstTime": true] as [String : Any]
         UserDefaults.standard.register(defaults: dictionary)
     }
     

@@ -154,7 +154,7 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
         // Woah: note the 3 equal signs, not just equal value (==) but identitical object (===)!
         if viewController === self {
             // set the index for the checklist opened to n/a (-1)
-            dataModel.indexOfSelectedChecklist = -1
+            dataModel.indexOfSelectedChecklist = GK.Index.noIndex
         }
     }
 }
