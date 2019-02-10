@@ -86,6 +86,8 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
     func showDatePicker() {
         datePickerVisible = true
         let indexPathDatePicker = IndexPath(row: 2, section: 1)
+        print("tableView.numberOfSections: \(tableView.numberOfSections)")
+        print("tableView.numberOfRows: \(tableView.numberOfRows(inSection: 1))")
         tableView.insertRows(at: [indexPathDatePicker], with: .fade)
     }
 
