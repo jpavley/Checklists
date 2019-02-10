@@ -283,6 +283,63 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
+                            <tableViewSection id="6kZ-5E-R2b">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="8bO-QD-teu">
+                                        <rect key="frame" x="0.0" y="115" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8bO-QD-teu" id="Efv-ae-Mb1">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remind Me" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iOK-Li-bGL" userLabel="Remind Me">
+                                                    <rect key="frame" x="16" y="12" width="288" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="hIo-du-Og0">
+                                                    <rect key="frame" x="253" y="6" width="51" height="31"/>
+                                                    <color key="onTintColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </switch>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="iOK-Li-bGL" firstAttribute="leading" secondItem="Efv-ae-Mb1" secondAttribute="leadingMargin" id="1rr-lk-PRl"/>
+                                                <constraint firstItem="iOK-Li-bGL" firstAttribute="centerX" secondItem="Efv-ae-Mb1" secondAttribute="centerX" id="2SM-gk-wc0"/>
+                                                <constraint firstItem="iOK-Li-bGL" firstAttribute="bottom" secondItem="Efv-ae-Mb1" secondAttribute="bottomMargin" id="EnB-gf-J6x"/>
+                                                <constraint firstItem="hIo-du-Og0" firstAttribute="top" secondItem="Efv-ae-Mb1" secondAttribute="top" constant="6" id="TOe-Do-bca"/>
+                                                <constraint firstItem="iOK-Li-bGL" firstAttribute="top" secondItem="Efv-ae-Mb1" secondAttribute="topMargin" constant="1" id="lwJ-bd-ecr"/>
+                                                <constraint firstAttribute="trailing" secondItem="hIo-du-Og0" secondAttribute="trailing" constant="18" id="uEf-jC-8HV"/>
+                                                <constraint firstAttribute="bottom" secondItem="hIo-du-Og0" secondAttribute="bottom" constant="6.5" id="uis-0K-HHM"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" textLabel="El6-E4-AzP" detailTextLabel="n5S-cm-hja" style="IBUITableViewCellStyleValue1" id="5Kr-VY-e9b">
+                                        <rect key="frame" x="0.0" y="159" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5Kr-VY-e9b" id="5gQ-oz-PW2">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Due Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="El6-E4-AzP">
+                                                    <rect key="frame" x="16" y="12" width="71.5" height="20.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="n5S-cm-hja">
+                                                    <rect key="frame" x="260" y="12" width="44" height="20.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                         </sections>
                         <connections>
                             <outlet property="dataSource" destination="1a3-3a-o5S" id="24H-cP-FcQ"/>
@@ -303,6 +360,8 @@
                     </navigationItem>
                     <connections>
                         <outlet property="doneBarButton" destination="1xx-fg-gvs" id="Six-lG-xHh"/>
+                        <outlet property="dueDateLabel" destination="n5S-cm-hja" id="CtS-8k-qr5"/>
+                        <outlet property="shouldRemindSwitch" destination="hIo-du-Og0" id="7uT-FR-nSx"/>
                         <outlet property="textField" destination="fqX-1H-YGB" id="YB3-b7-CYM"/>
                     </connections>
                 </tableViewController>
