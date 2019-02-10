@@ -19,6 +19,7 @@
 		B82CACEA21E8D0AF002EFE06 /* ChecklistItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82CACE921E8D0AF002EFE06 /* ChecklistItem.swift */; };
 		B82CAD1A21F1007A002EFE06 /* ItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82CAD1921F1007A002EFE06 /* ItemDetailViewController.swift */; };
 		B8A43BBD2205F49B008864E8 /* IconPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A43BBC2205F49B008864E8 /* IconPickerViewController.swift */; };
+		B8AEEE7622107E5100E08677 /* GlobalConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8AEEE7522107E5100E08677 /* GlobalConstants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		B82CACE921E8D0AF002EFE06 /* ChecklistItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistItem.swift; sourceTree = "<group>"; };
 		B82CAD1921F1007A002EFE06 /* ItemDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailViewController.swift; sourceTree = "<group>"; };
 		B8A43BBC2205F49B008864E8 /* IconPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconPickerViewController.swift; sourceTree = "<group>"; };
+		B8AEEE7522107E5100E08677 /* GlobalConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalConstants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				B82CACD721E812EE002EFE06 /* AppDelegate.swift */,
+				B8AEEE7522107E5100E08677 /* GlobalConstants.swift */,
 				B815ABD121FB442800D5EA78 /* Controllers */,
 				B815ABD021FB441900D5EA78 /* Models */,
 				B8A43BBB2203C852008864E8 /* Resources */,
@@ -182,6 +185,7 @@
 			files = (
 				B80624B72201E298001EB400 /* ChecklistDataModel.swift in Sources */,
 				B82CACEA21E8D0AF002EFE06 /* ChecklistItem.swift in Sources */,
+				B8AEEE7622107E5100E08677 /* GlobalConstants.swift in Sources */,
 				B815ABD321FBDF2600D5EA78 /* ListDetailViewController.swift in Sources */,
 				B8A43BBD2205F49B008864E8 /* IconPickerViewController.swift in Sources */,
 				B82CAD1A21F1007A002EFE06 /* ItemDetailViewController.swift in Sources */,
