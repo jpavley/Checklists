@@ -14,10 +14,10 @@ class ChecklistDataModel {
     
     var indexOfSelectedChecklist: Int {
         get {
-            return UserDefaults.standard.integer(forKey: "ChecklistIndex")
+            return UserDefaults.standard.integer(forKey: GK.Key.checkListIndex)
         }
         set {
-            UserDefaults.standard.set(newValue, forKey: "ChecklistIndex")
+            UserDefaults.standard.set(newValue, forKey: GK.Key.checkListIndex)
             // force user defaults to set the new value immediately in the case of a sudden termination event
             UserDefaults.standard.synchronize()
         }
@@ -33,20 +33,20 @@ class ChecklistDataModel {
     func registerDefaults() {
         // if ChecklistIndex is -1 then no checklist was opened
         // if FirstTime is true then this is the first time the user has launced the app
-        let dictionary = ["ChecklistIndex": GK.Index.noIndex, "FirstTime": true] as [String : Any]
+        let dictionary = ["ChecklistIndex": GK.Index.noIndex, GK.Key.firstTime: true] as [String : Any]
         UserDefaults.standard.register(defaults: dictionary)
     }
     
     func handleFirstTime() {
         let userDefaults = UserDefaults.standard
-        let firstTime = userDefaults.bool(forKey: "FirstTime")
+        let firstTime = userDefaults.bool(forKey: GK.Key.firstTime)
         
         if firstTime {
-            let checklist = Checklist(name: "List")
+            let checklist = Checklist(name: GK.Key.list)
             lists.append(checklist)
             
             indexOfSelectedChecklist = 0
-            userDefaults.set(false, forKey: "FirstTime")
+            userDefaults.set(false, forKey: GK.Key.firstTime)
             userDefaults.synchronize()
         }
     }
@@ -64,7 +64,7 @@ class ChecklistDataModel {
     }
     
     func dataFilePath() -> URL {
-        return documentsDirectory().appendingPathComponent("Checklists.plist")
+        return documentsDirectory().appendingPathComponent(GK.Path.pList)
     }
     
     func saveChecklists() {
@@ -92,7 +92,7 @@ class ChecklistDataModel {
                 print("Error decoding checklist: \(error.localizedDescription)")
             }
         } else {
-            print("Could not find Checklists.plist")
+            print("Could not find \(GK.Path.pList)")
         }
     }
     
@@ -100,8 +100,8 @@ class ChecklistDataModel {
     
     class func nextChecklistItemID() -> Int {
         let userDefaults = UserDefaults.standard
-        let itemID = userDefaults.integer(forKey: "ChecklistItemID")
-        userDefaults.set(itemID + 1, forKey: "ChecklistItemID")
+        let itemID = userDefaults.integer(forKey: GK.Key.checkListItemID)
+        userDefaults.set(itemID + 1, forKey: GK.Key.checkListItemID)
         userDefaults.synchronize() // force user default to update immediately
         return itemID
     }

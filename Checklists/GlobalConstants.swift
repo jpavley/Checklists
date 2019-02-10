@@ -15,4 +15,15 @@ struct GlobalConstants {
     struct Index {
         static let noIndex = -1
     }
+    
+    struct Key {
+        static let checkListIndex = "ChecklistIndex"
+        static let firstTime = "FirstTime"
+        static let list = "List"
+        static let checkListItemID = "ChecklistItemID"
+    }
+    
+    struct Path {
+        static let pList = "Checklists.plist"
+    }
 }
