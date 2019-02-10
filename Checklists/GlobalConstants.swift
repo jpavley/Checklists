@@ -39,6 +39,7 @@ struct GlobalConstants {
             static let addChecklist = "AddChecklist"
             static let addItem = "AddItem"
             static let editItem = "EditItem"
+            static let pickIcon = "PickIcon"
         }
         
         struct storyboardID {
