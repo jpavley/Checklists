@@ -32,6 +32,7 @@ struct GlobalConstants {
         struct cellID {
             static let checklistCell = "ChecklistCell"
             static let checklistItem = "ChecklistItem"
+            static let iconCell = "IconCell"
         }
         
         struct segueID {
