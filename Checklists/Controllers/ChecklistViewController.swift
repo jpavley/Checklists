@@ -50,7 +50,7 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ChecklistItem", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier:GK.View.cellID.checklistItem, for: indexPath)
         
         let item = checklist.items[indexPath.row]
         configureCellMark(with: item, for: cell)
@@ -126,9 +126,9 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "AddItem" {
+        if segue.identifier == GK.View.segueID.addItem {
             configureDesination(to: segue)
-        } else if segue.identifier == "EditItem" {
+        } else if segue.identifier == GK.View.segueID.editItem {
             let controller = configureDesination(to: segue)
             if let indexPath = tableView.indexPath(for: sender as! UITableViewCell) {
                 controller.itemToEdit = checklist.items[indexPath.row]

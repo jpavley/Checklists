@@ -31,11 +31,14 @@ struct GlobalConstants {
         
         struct cellID {
             static let checklistCell = "ChecklistCell"
+            static let checklistItem = "ChecklistItem"
         }
         
         struct segueID {
             static let showChecklist = "ShowChecklist"
             static let addChecklist = "AddChecklist"
+            static let addItem = "AddItem"
+            static let editItem = "EditItem"
         }
         
         struct storyboardID {
