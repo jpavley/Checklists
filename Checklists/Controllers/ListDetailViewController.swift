@@ -29,7 +29,7 @@ class ListDetailViewController: UITableViewController, UITextFieldDelegate, Icon
     
     weak var delegate: ListDetailViewControllerDelegate?
     var checklistToEdit: Checklist?
-    var iconName = "No Icon"
+    var iconName = GK.Icon.noIcon
     
     // MARK:- View Management
     

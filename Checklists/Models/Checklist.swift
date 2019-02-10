@@ -10,10 +10,10 @@ import UIKit
 
 class Checklist: NSObject, Codable {
     var name = ""
-    var iconName = "No Icon"
+    var iconName = GK.Icon.noIcon
     var items: [ChecklistItem]
     
-    init(name: String, iconName: String = "No Icon") {
+    init(name: String, iconName: String = GK.Icon.noIcon) {
         self.name = name
         self.iconName = iconName
         items = [ChecklistItem]()

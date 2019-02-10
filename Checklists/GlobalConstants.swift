@@ -8,8 +8,6 @@
 
 import Foundation
 
-typealias GK = GlobalConstants
-
 struct GlobalConstants {
     
     struct Index {
@@ -47,4 +45,10 @@ struct GlobalConstants {
             static let listDetailViewController = "ListDetailViewController"
         }
     }
+    
+    struct Icon {
+        static let noIcon = "No Icon"
+    }
 }
+
+typealias GK = GlobalConstants
