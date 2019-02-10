@@ -14,7 +14,6 @@ import UIKit
 /// - ListDetailViewControllerDelegate is a bespoke protocol that means the object is notified when the user makes changes to a checklist.
 class AllListsViewController: UITableViewController, ListDetailViewControllerDelegate, UINavigationControllerDelegate {
     
-    let cellIdentifier = "ChecklistCell"
     var dataModel: ChecklistDataModel!
     
     override func viewDidLoad() {
@@ -32,7 +31,7 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
         if index >= 0 && index < dataModel.lists.count {
             // make sure the index is not -1 (n/a) or greater than the number of availble lists before seguing
             let checklist = dataModel.lists[index]
-            performSegue(withIdentifier: "ShowChecklist", sender: checklist)
+            performSegue(withIdentifier: GK.View.segueID.showChecklist, sender: checklist)
         }
     }
     
@@ -45,7 +44,7 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
     
     override func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
         
-        let controller = storyboard!.instantiateViewController(withIdentifier: "ListDetailViewController") as! ListDetailViewController
+        let controller = storyboard!.instantiateViewController(withIdentifier: GK.View.storyboardID.listDetailViewController) as! ListDetailViewController
         controller.delegate = self
         
         let checklist = dataModel.lists[indexPath.row]
@@ -65,11 +64,11 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
         
         let cell: UITableViewCell!
         
-        if let c = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) {
+        if let c = tableView.dequeueReusableCell(withIdentifier: GK.View.cellID.checklistCell) {
             cell = c
             
         } else {
-            cell = UITableViewCell(style: .subtitle, reuseIdentifier: cellIdentifier)
+            cell = UITableViewCell(style: .subtitle, reuseIdentifier: GK.View.cellID.checklistCell)
         }
         
         let list = dataModel.lists[indexPath.row]
@@ -96,7 +95,7 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
         
         // save the index of the list that the user is about to open include app is terminated
         dataModel.indexOfSelectedChecklist = indexPath.row
-        performSegue(withIdentifier: "ShowChecklist", sender: checklist)
+        performSegue(withIdentifier: GK.View.segueID.showChecklist, sender: checklist)
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -110,12 +109,12 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if segue.identifier == "ShowChecklist" {
+        if segue.identifier == GK.View.segueID.showChecklist {
             
             let controller = segue.destination as! ChecklistViewController
             controller.checklist = sender as? Checklist
             
-        } else if segue.identifier == "AddChecklist" {
+        } else if segue.identifier == GK.View.segueID.addChecklist {
             
             let controller = segue.destination as! ListDetailViewController
             controller.delegate = self

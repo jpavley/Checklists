@@ -26,4 +26,20 @@ struct GlobalConstants {
     struct Path {
         static let pList = "Checklists.plist"
     }
+    
+    struct View {
+        
+        struct cellID {
+            static let checklistCell = "ChecklistCell"
+        }
+        
+        struct segueID {
+            static let showChecklist = "ShowChecklist"
+            static let addChecklist = "AddChecklist"
+        }
+        
+        struct storyboardID {
+            static let listDetailViewController = "ListDetailViewController"
+        }
+    }
 }
