@@ -18,6 +18,10 @@ class ChecklistItem: NSObject, Codable {
     var itemID = GK.Index.noIndex
     
     init(text: String = "", checked: Bool = false) {
+        super.init()
+        
+        itemID = ChecklistDataModel.nextChecklistItemID()
+        
         self.text = text
         self.checked = checked
     }
