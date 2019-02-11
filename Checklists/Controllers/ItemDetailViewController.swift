@@ -93,12 +93,23 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
         let indexPathDatePicker = IndexPath(row: 2, section: 1)
         tableView.insertRows(at: [indexPathDatePicker], with: .fade)
     }
-
+    
+    fileprivate func isDatePickerRow(_ indexPath: IndexPath) -> Bool {
+        return indexPath.section == 1 && indexPath.row == 2
+    }
+    
+    fileprivate func isDueDateRow(_ indexPath: IndexPath) -> Bool {
+        return indexPath.section == 1 && indexPath.row == 1
+    }
+    
+    fileprivate func isDatePickerSection(_ section: Int) -> Bool {
+        return section == 1 && datePickerVisible
+    }
     
     // MARK:- Table View Delegations
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 1 && datePickerVisible {
+        if isDatePickerSection(section) {
             return 3 // the 3rd row is more the date picker
         } else {
             return super.tableView(tableView, numberOfRowsInSection: section)
@@ -106,7 +117,7 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.section == 1 && indexPath.row == 2 {
+        if isDatePickerRow(indexPath) {
             return 217 // standard height of the date picker
         } else {
             return super.tableView(tableView, heightForRowAt: indexPath)
@@ -114,7 +125,7 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.section == 1 && indexPath.row == 2 {
+        if isDatePickerRow(indexPath) {
             return datePickerCell // the cell that contains the date picker
         } else {
             return super.tableView(tableView, cellForRowAt: indexPath)
@@ -122,7 +133,7 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
     }
     
     override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-        if indexPath.section == 1 && indexPath.row == 1 {
+        if isDueDateRow(indexPath) {
             return indexPath // enabled selection of the due date row
         } else {
             return nil // disable selection of all other rows
@@ -132,15 +143,15 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         textField.resignFirstResponder() // hide the keyboard
-        if indexPath.section == 1 && indexPath.row == 1 {
+        if isDueDateRow(indexPath) {
             showDatePicker() // insert the date picker in the table at the end
         }
     }
     
     override func tableView(_ tableView: UITableView, indentationLevelForRowAt indexPath: IndexPath) -> Int {
         var newIndexPath = indexPath
-        if indexPath.section == 1 && indexPath.row == 2 {
-            newIndexPath = IndexPath(row: 0, section: indexPath.section) // retrun the same indent level as section 1, row 0
+        if isDatePickerRow(indexPath) {
+            newIndexPath = IndexPath(row: 0, section: indexPath.section) // return the same indent level as section 1, row 0
         }
         return super.tableView(tableView, indentationLevelForRowAt: newIndexPath)
     }
