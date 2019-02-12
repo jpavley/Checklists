@@ -29,4 +29,10 @@ class ChecklistItem: NSObject, Codable {
     func toggleChecked() {
         checked = !checked
     }
+    
+    func scheduleNotification() {
+        if shouldRemind && dueDate > Date() {
+            print("We should schedule a notification!")
+        }
+    }
 }
