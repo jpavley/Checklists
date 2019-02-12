@@ -97,6 +97,7 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
         datePickerVisible = true
         let indexPathDatePicker = IndexPath(row: 2, section: 1)
         tableView.insertRows(at: [indexPathDatePicker], with: .fade)
+        datePicker.setDate(dueDate, animated: false)
     }
     
     fileprivate func isDatePickerRow(_ indexPath: IndexPath) -> Bool {
