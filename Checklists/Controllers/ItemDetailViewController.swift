@@ -79,6 +79,11 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
         }
     }
     
+    @IBAction func dateChanged(_ datePicker: UIDatePicker) {
+        dueDate = datePicker.date
+        updateDueDateLabel()
+    }
+    
     // MARK:- Helper Methods
     
     func updateDueDateLabel() {
