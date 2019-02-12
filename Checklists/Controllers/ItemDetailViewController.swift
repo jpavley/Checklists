@@ -65,16 +65,22 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
     }
     
     @IBAction func done() {
+        
         if let itemToEdit = itemToEdit {
+            
             itemToEdit.text = textField.text!
             itemToEdit.shouldRemind = shouldRemindSwitch.isOn
             itemToEdit.dueDate = dueDate
+            itemToEdit.scheduleNotification()
+            
             delegate?.itemDetailViewController(self, didFinishEditing: itemToEdit)
         } else {
             
             let item = ChecklistItem(text: textField.text!, checked: false)
             item.shouldRemind = shouldRemindSwitch.isOn
             item.dueDate = dueDate
+            item.scheduleNotification()
+            
             delegate?.itemDetailViewController(self, didFinishAdding: item)
         }
     }
