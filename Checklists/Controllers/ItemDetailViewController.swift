@@ -98,6 +98,16 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
         let indexPathDatePicker = IndexPath(row: 2, section: 1)
         tableView.insertRows(at: [indexPathDatePicker], with: .fade)
         datePicker.setDate(dueDate, animated: false)
+        dueDateLabel.textColor = dueDateLabel.tintColor
+    }
+    
+    func hideDatePicker() {
+        if datePickerVisible {
+            datePickerVisible = false
+            let indexPathDatePicker = IndexPath(row: 2, section: 1)
+            tableView.deleteRows(at: [indexPathDatePicker], with: .fade)
+            dueDateLabel.textColor = UIColor.black
+        }
     }
     
     fileprivate func isDatePickerRow(_ indexPath: IndexPath) -> Bool {
@@ -150,7 +160,11 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         textField.resignFirstResponder() // hide the keyboard
         if isDueDateRow(indexPath) {
-            showDatePicker() // insert the date picker in the table at the end
+            if !datePickerVisible {
+                showDatePicker() // insert the date picker into the table at the end
+            } else {
+                hideDatePicker() // delete the date picker from the table
+            }
         }
     }
     
@@ -176,6 +190,10 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
     func textFieldShouldClear(_ textField: UITextField) -> Bool {
         doneBarButton.isEnabled = false
         return true
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        hideDatePicker()
     }
     
 }
