@@ -74,7 +74,8 @@ class ChecklistDataModel {
             let data = try encoder.encode(lists)
             try data.write(to: dataFilePath(), options: Data.WritingOptions.atomic)
         } catch {
-            print("Error encoding checklist: \(error.localizedDescription)")
+            // for debugging uncomment print statement below
+            // print("Error encoding checklist: \(error.localizedDescription)")
         }
     }
     
@@ -89,10 +90,12 @@ class ChecklistDataModel {
                 lists = try decoder.decode([Checklist].self, from: data)
                 sortChecklists()
             } catch {
-                print("Error decoding checklist: \(error.localizedDescription)")
+                // for debugging uncomment print statement below
+                // print("Error decoding checklist: \(error.localizedDescription)")
             }
         } else {
-            print("Could not find \(GK.Path.pList)")
+            // for debugging uncomment print statement below
+            // print("Could not find \(GK.Path.pList)")
         }
     }
     
