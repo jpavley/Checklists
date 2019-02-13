@@ -27,6 +27,10 @@ class ChecklistItem: NSObject, Codable {
         self.checked = checked
     }
     
+    deinit {
+        removeNotification()
+    }
+    
     func toggleChecked() {
         checked = !checked
     }
