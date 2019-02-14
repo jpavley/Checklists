@@ -18,6 +18,13 @@ class ChecklistItem: NSObject, Codable {
     var shouldRemind = false
     var itemID = GK.Index.noIndex
     
+    var dueDateAsString: String {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        formatter.timeStyle = .short
+        return formatter.string(from: dueDate)
+    }
+    
     init(text: String = "", checked: Bool = false) {
         super.init()
         
