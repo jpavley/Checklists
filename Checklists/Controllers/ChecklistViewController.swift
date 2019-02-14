@@ -15,7 +15,7 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
+                
         navigationItem.largeTitleDisplayMode = .never
         title = checklist.name
     }
@@ -94,11 +94,15 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
     
     func itemDetailViewController(_ controller: ItemDetailViewController, didFinishAdding item: ChecklistItem) {
         addItem(item)
+        checklist.sortItems()
+        tableView.reloadData()
         navigationController?.popViewController(animated:true)
     }
     
     func itemDetailViewController(_ controller: ItemDetailViewController, didFinishEditing item: ChecklistItem) {
         editItem(item)
+        checklist.sortItems()
+        tableView.reloadData()
         navigationController?.popViewController(animated:true)
     }
     
