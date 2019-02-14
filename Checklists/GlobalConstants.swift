@@ -49,6 +49,12 @@ struct GlobalConstants {
     struct Icon {
         static let noIcon = "No Icon"
     }
+    
+    struct Tag {
+        static let markLabel = 1001
+        static let itemLabel = 1000
+        static let dueDateLabel = 1002
+    }
 }
 
 typealias GK = GlobalConstants

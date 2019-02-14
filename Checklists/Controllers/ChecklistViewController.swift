@@ -28,7 +28,7 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
     
     func configureCellMark(with item: ChecklistItem, for cell: UITableViewCell) {
         
-        let label = cell.viewWithTag(1001) as! UILabel
+        let label = cell.viewWithTag(GK.Tag.markLabel) as! UILabel
         
         if item.checked {
             label.alpha = 1.0
@@ -39,10 +39,10 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
     
     func configureCellText(with item: ChecklistItem, for cell: UITableViewCell) {
         
-        let itemLabel = cell.viewWithTag(1000) as! UILabel
+        let itemLabel = cell.viewWithTag(GK.Tag.itemLabel) as! UILabel
         itemLabel.text = item.text
         
-        let dateLabel = cell.viewWithTag(1002) as! UILabel
+        let dateLabel = cell.viewWithTag(GK.Tag.dueDateLabel) as! UILabel
         dateLabel.text = item.dueDateAsString
         
     }
