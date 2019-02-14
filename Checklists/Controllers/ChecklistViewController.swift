@@ -40,8 +40,7 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
     func configureCellText(with item: ChecklistItem, for cell: UITableViewCell) {
         
         let label = cell.viewWithTag(1000) as! UILabel
-        //label.text = item.text
-        label.text = "\(item.itemID): \(item.text)"
+        label.text = item.text
     }
 
     // MARK:- Table View Data Source
